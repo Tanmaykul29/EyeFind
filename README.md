@@ -5,13 +5,7 @@
 This is a camera app that continuously detects the objects (bounding boxes and
 classes) in the frames seen by your device's back camera, with the option to use
 a quantized
-[MobileNet SSD](https://tfhub.dev/tensorflow/lite-model/ssd_mobilenet_v1/1/metadata/2),
-[EfficientDet Lite 0](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite0/detection/metadata/1),
-[EfficientDet Lite1](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite1/detection/metadata/1),
-or
-[EfficientDet Lite2](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite2/detection/metadata/1)
-model trained on the [COCO dataset](http://cocodataset.org/). These instructions
-walk you through building and running the demo on an Android device.
+
 
 The model files are downloaded via Gradle scripts when you build and run the
 app. You don't need to do any steps to download TFLite models into the project
