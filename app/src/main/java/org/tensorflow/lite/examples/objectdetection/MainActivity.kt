@@ -16,9 +16,11 @@
 
 package org.tensorflow.lite.examples.objectdetection
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
 
 /**
@@ -31,8 +33,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        navigatetointro_slider()
+        navigate_to_object_detection()
+//        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(activityMainBinding.root)
+    }
+
+    private fun navigate_to_object_detection(){
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
+    }
+    //
+    private fun navigatetointro_slider(){
+        startActivity(Intent(applicationContext, intro_slider::class.java))
     }
 
     override fun onBackPressed() {
