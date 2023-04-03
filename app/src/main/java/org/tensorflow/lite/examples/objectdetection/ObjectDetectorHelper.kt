@@ -123,6 +123,24 @@ class ObjectDetectorHelper(
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
 
         val results = objectDetector?.detect(tensorImage)
+
+        if (results != null) {
+            val clone = results.toMutableList()
+            //clone.clear()
+            for (i in clone){
+                var t = (0..3).random();
+                if(i.categories[0].score<0.70||t<2){
+                    continue;
+                }
+                TextToSpeechHelper.speak(
+                    context,
+                    i.categories[0].label.toString()
+
+                )
+                Log.e("Msg", "$i");
+            }
+        }
+
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
         objectDetectorListener?.onResults(
             results,
