@@ -6,39 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".EntryPage">
 
+    <ImageView
+        android:id="@+id/bluelogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/eyefind_lg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/Options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="50dp"
         android:text="Eyefind"
-        android:textColor="@color/purple_700"
-        android:textSize="35sp"
+        android:textColor="#004AAD"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <Button-->
+<!--        android:id="@+id/txt_recog_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50sp"-->
+<!--        android:background="@color/purple_700"-->
+<!--        android:text="Text Recognition"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Options" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/obj_recog_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/purple_700"-->
+<!--        android:text="Object Detection"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_marginTop="50sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_recog_button" />-->
+
     <Button
         android:id="@+id/txt_recog_button"
-        android:layout_width="wrap_content"
+        android:layout_width="100pt"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
-        android:background="@color/purple_700"
+        android:layout_margin="100dp"
+        android:background="@drawable/ic_getstarted"
         android:text="Text Recognition"
-        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textColor="@color/custom_color_background"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintCircleRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Options" />
 
     <Button
         android:id="@+id/obj_recog_button"
-        android:layout_width="wrap_content"
+        android:layout_width="100pt"
         android:layout_height="wrap_content"
-        android:background="@color/purple_700"
+        android:layout_margin="100dp"
+        android:background="@drawable/ic_getstarted"
         android:text="Object Detection"
-        android:textColor="@color/white"
-        android:layout_marginTop="50sp"
+        android:textAllCaps="false"
+        android:textColor="@color/custom_color_background"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintCircleRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_recog_button" />
