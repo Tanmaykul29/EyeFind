@@ -17,6 +17,7 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -24,7 +25,9 @@ import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
+import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
 import java.util.*
 
@@ -37,14 +40,41 @@ class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding
     private var tts: TextToSpeech?= null
     private var btn: Button?= null
+    private val ENTRY_PAGE_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        navigatetointro_slider()
-        navigate_to_object_detection()
+//        navigatetointro_slider()
+
+        navigate_to_Entry()
+
+
+//        navigate_to_object_detection()
 //        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 //        setContentView(activityMainBinding.root)
     }
+    private fun navigate_to_OCR(){
+        startActivity(Intent(applicationContext, OcrActivity::class.java))
+    }
+    private fun navigate_to_Entry(){
+        val intent = Intent(this, EntryPage::class.java)
+        startActivityForResult(intent, ENTRY_PAGE_REQUEST_CODE)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == ENTRY_PAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // Button 1 was clicked in EntryPage activity
+            Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show()
+            navigate_to_OCR()
+        } else if (requestCode == ENTRY_PAGE_REQUEST_CODE && resultCode == Activity.RESULT_CANCELED) {
+            // Button 2 was clicked in EntryPage activity
+            Toast.makeText(this, "Button 2 clicked", Toast.LENGTH_SHORT).show()
+            navigatetointro_slider()
+//            navigate_to_object_detection()
+        }
+    }
+
 
     private fun navigate_to_object_detection(){
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -52,7 +82,13 @@ class MainActivity : AppCompatActivity() {
     }
     //
     private fun navigatetointro_slider(){
-        startActivity(Intent(applicationContext, intro_slider::class.java))
+        lifecycleScope.launch {
+            // Call the first function
+            startActivity(Intent(applicationContext, intro_slider::class.java))
+
+            // Call the second function after function1 completes
+            navigate_to_object_detection()
+        }
     }
 
     override fun onBackPressed() {

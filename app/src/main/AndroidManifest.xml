@@ -16,6 +16,20 @@
         android:taskAffinity=""
         tools:ignore="AllowBackup">
         <activity
+            android:name=".OcrActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr"></meta-data>
+
+        <activity
+            android:name=".EntryPage"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
@@ -29,11 +43,13 @@
             android:name=".intro_slider"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".MainActivity"

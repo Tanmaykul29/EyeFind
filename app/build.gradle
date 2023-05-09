@@ -21,12 +21,12 @@ apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'de.undercouch.download'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         applicationId "org.tensorflow.lite.examples.objectdetection"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0.0"
     }
@@ -53,6 +53,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     androidResources {
         noCompress 'tflite'
@@ -80,6 +81,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+
+    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:19.0.0'
 
     // Navigation library
     def nav_version = "2.3.5"
