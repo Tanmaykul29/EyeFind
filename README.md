@@ -1,4 +1,4 @@
-# TensorFlow Lite Object Detection Android Demo
+# object detection and recognition
 
 ### Overview
 
